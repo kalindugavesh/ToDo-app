@@ -2,10 +2,11 @@
 
 import tkinter as tk
 from tkinter import ttk
+import datetime as dt
 
 #---------------------------Create_Roots----------------------------------#
 root = tk.Tk()
-root.geometry("450x700+100+20")
+root.geometry("450x750+100+20")
 root.title("ToDo")
 root.iconbitmap("icon.ico")
 root.configure(bg="lightblue")
@@ -88,9 +89,14 @@ frame1.place(x=20,y=120)
 listbox = tk.Listbox(frame1,font="Arial 15",width=37,height=13,highlightthickness=0,selectbackground="red",background="lightgrey")
 listbox.pack()
 
+listbox2=tk.Listbox(frame1,font="Arial 15",width=10,height=13,highlightthickness=0,selectbackground="red",background="lightgrey")
+listbox2.place(x=297,y=0,)
+
+
 #-----delete button-----
 delete_button = ttk.Button(root,text="Delete",style="TButton",width=10,command=delete_task)
 delete_button.place(x=20,y=450)
+
 
 #---headline task----
 taskadd_heading = ttk.Label(root,text="Add New Task",style="TLabel")
@@ -102,9 +108,19 @@ frame2 = ttk.Frame(root,width=350,height=50)
 frame2.place(x=20,y=550)
 
 
-#-----Entry filed task------
+#-----Entry Field task------
 task_entry = ttk.Entry(frame2,font="Arial 18",width=28)
 task_entry.pack()
+
+
+#Time Lable------
+timelable = ttk.Label(root,text="Time")
+timelable.place(x=20,y=590)
+
+
+#-----Time Field for task-----
+time = ttk.Entry(root,font="Arial 10")
+time.place(x=20,y=630)
 
 #Event Bind 
 task_entry.bind("<Return>",add_task)
@@ -112,7 +128,7 @@ task_entry.bind("<Return>",add_task)
 
 #add task button
 taskadd_button = ttk.Button(root,text="ADD TASK",style="TButton",command=add_task)
-taskadd_button.place(x=19,y=600)
+taskadd_button.place(x=19,y=670)
 
 
 #---File open call function-----
